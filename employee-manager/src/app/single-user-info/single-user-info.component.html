@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>{{ data.name }} {{ data.surname }}</h2>
+<div mat-dialog-content class="dialog-content">
+  <img src="{{ data.picture }}" alt="Profile picture" width="150">
+  <ul>
+    <li>Sex: {{ data.sex }}</li>
+    <li>Date of birth: {{ data.dateOfBirth | date }}</li>
+    <li>Date of work start: {{ data.dateOfWorkStart | date }}</li>
+    <li>Type of contract: {{ data.typeOfContract }}</li>
+    <li>Contract duration: {{ data.contractDuration }} </li>
+    <li>Department: {{ data.department }}</li>
+    <li>Number of vacation days: {{ data.numberOfVacationDays }}</li>
+    <li>Number of free days: {{ data.numberOfFreeDays }}</li>
+    <li>Number of paid leave days: {{ data.numberOfPaidLeaveDays }}</li>
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="closeDialog()">Close</button>
+  <button mat-raised-button color="primary" (click)="openUpdateUserDialog(data)">Update User</button>
+</div>

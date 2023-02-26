@@ -1,0 +1,35 @@
+<h1>Welcome to Employee Manager</h1>
+<button (click)="showUserList()" *ngIf="!buttonClicked">Show Employee List</button>
+
+<div *ngIf="showUsers">
+  <button (click)="showCreateUser()" *ngIf="!showCreateUsersVar">Create User</button>
+  <div *ngIf="showCreateUsersVar && !isCreateUserFormSubmitted" >
+    <app-create-user-form (cancel)="showCreateUser()" (formSubmitted)="createUserFormSubmitted()"></app-create-user-form>
+  </div>
+  <table *ngIf="!showCreateUsersVar">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Sex</th>
+        <th>Date of Work Start</th>
+        <th>Type of Contract</th>
+        <th>Contract Duration</th>
+        <th>Department</th>
+        <th>More Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userList">
+        <td>{{ user.name }}</td>
+        <td>{{ user.surname }}</td>
+        <td>{{ user.sex }}</td>
+        <td>{{ user.dateOfWorkStart  | date}}</td>
+        <td>{{ user.typeOfContract }}</td>
+        <td>{{ user.contractDuration }}</td>
+        <td>{{ user.department }}</td>
+        <td><button (click)="openDialog(user)">More Info</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
